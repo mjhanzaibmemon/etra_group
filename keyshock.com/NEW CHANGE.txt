@@ -1,0 +1,5 @@
+SELECT * FROM `listings123_uk` WHERE `ended` < '1514764800'
+
+THIS COMES TO 75,000 OLDER THAN 1/1/2018
+
+set to done = 5

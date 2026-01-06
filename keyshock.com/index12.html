@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Find the Job that makes you happy - Keyshock Job Finder</title>
+<meta name="description" content="Find the job that's right for you. Use Keyshocks's resources to search for jobs, prepare for interviews, and launch your career." />
+<meta name="keywords" content="US Jobs, employment, recruitment, vacancies, careers, Accountancy, Agriculture, Fishing, Forestry, Banking, Insurance, Finance, Catering, Hospitality, Construction, Property, Customer Services, Call centres, Education, Electronics, Engineering, Manufacturing, Utilities, Graduate, Trainees, Health, Nursing, Social services, Human resources, IT, Internet, Legal, Management consultancy, Marketing, Advertising, PR, Media, New Media, Creative, Not for profit, Charities, Public sector, Sales, Science, Secretarial, PAs, Administration, Senior appointments, Telecomms, Transport, Logistics, Aerospace, Travel, Leisure, Tourism"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script>
+
+function getXY(o){ var l=0;var t=0; if (o.offsetParent){l=o.offsetLeft;t=o.offsetTop;while(o=o.offsetParent){l+=o.offsetLeft;t+=o.offsetTop;t=t+25;}}return new Array(l,t);} function createXMLHttpRequest(){var ua;if(window.XMLHttpRequest){try{ua=new XMLHttpRequest();}catch(e){ua = false;}} else if(window.ActiveXObject){try {ua = new ActiveXObject("Microsoft.XMLHTTP");}catch(e){ua = false;}} return ua;} var suggestObj,timerSuggest,currentSuggest=0; function keySuggest(obj,e){ if (window.event && e){e = window.event;} if(e){ if(e.keyCode==13||e.keyCode==9){document.getElementById('divSuggest').style.display='none';currentSuggest=0;return true;} if(e.keyCode==38){highlightSuggest(1);return false;} if(e.keyCode==40){highlightSuggest(2);return false;} } suggestObj=obj;setTimeout('loadSuggest()',1); } function loadSuggest(a){ if(!suggestObj.value){document.getElementById('divSuggest').style.display='none';currentSuggest=0;return true;} var v= createXMLHttpRequest(); v.open('get', 'auto_suggest.php?show='+suggestObj.name+'&q='+escape(suggestObj.value)); v.onreadystatechange = function(){if(this.readyState==4){if(this.responseText){processSuggest(this.responseText)}else{document.getElementById('divSuggest').style.display='none';currentSuggest=0;}}}; v.send(null); return true; } function processSuggest(r){clearInterval(timerSuggest); currentSuggest=0; document.getElementById('divSuggest').innerHTML=r; document.getElementById('divSuggest').style.display=''; alignSuggest(); } function alignSuggest(){ if(!suggestObj){return false;} var posXY=getXY(suggestObj); document.getElementById('divSuggest').style.top=posXY[1]+22+'px'; document.getElementById('divSuggest').style.left=posXY[0]+'px'; } function selectSuggest(v){ suggestObj.value=v;document.getElementById('divSuggest').style.display='none';currentSuggest=0;} function hideSuggest(){ timerSuggest=setTimeout("document.getElementById('divSuggest').style.display='none';currentSuggest=0;",20); } function highlightSuggest(v){ if(document.getElementById('divSuggest').style.display=='none'){return false} if(currentSuggest){document.getElementById('l'+currentSuggest).style.background='';} if(v==1){currentSuggest--;} if(v==2){currentSuggest++;} if(!document.getElementById('l'+currentSuggest)){currentSuggest=1;} document.getElementById('l'+currentSuggest).style.background='#f2f2f2'; suggestObj.value=document.getElementById('l'+currentSuggest).getAttribute('q');}
+
+function getOffset(e){var t=0;var n=0;while(e&&!isNaN(e.offsetLeft)&&!isNaN(e.offsetTop)){t+=e.offsetLeft-e.scrollLeft;n+=e.offsetTop-e.scrollTop;e=e.offsetParent}return{top:n,left:t}}function check(e){var t=e&&e.target||event&&event.srcElement;var n=document.getElementById("profile");var r=document.getElementById("userprofile");if(!checkParent(t,"profile")){if(checkParent(t,"userprofile")){if(n.style.display=="none"){n.style.left=getOffset(r).left;n.style.display="";document.getElementById("userprofile").style.color="black"}else{n.style.display="none"}}else{n.style.display="none"}}}function checkParent(e,t){while(e.parentNode){if(e==document.getElementById(t)){return true}e=e.parentNode}return false}document.onclick=check
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="stylenew.css">
+
+</head>
+
+<body>
+
+<div id="divSuggest" style="border:1px solid #b1b1b1;background:#fff;display:none;position:absolute;z-index:15;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px"></div>
+
+{header}
+
+<div align="center" style="background-color:#2c3e50;height: 360px;color:white;background-image: url('https://s3.amazonaws.com/ksjmain/homepagebg.jpg');background-size:cover;    background-position: center;">
+
+<div align="center" style="    padding-top: 70px;
+    font-size: 55px;
+    font-weight: 100;">Find a Job that you will <font color="#FF9933">love</font></div>
+
+<form method="get" action="redirect.php">
+
+<div class="searchsection" align="center" style="    width: 910px;
+    display: inline-block;">
+
+<div class="title">What?<div>
+
+
+<input class="input" size="1" name="type" placeholder="What type of occupation are you looking for?" autocomplete="off" onkeydown="if(this.value){this.style.background=''}return keySuggest(this,event)" onkeypress="if(this.value){this.style.background=''}" onfocus="if(this.value){this.style.background=''}document.getElementById('divSuggest').style.display='none';currentSuggest=0;" onblur="if(this.value){this.style.background=''}hideSuggest()" id="search">
+
+
+</div>
+</div>
+
+<div class="title">Where?
+<div>
+
+<input class="input" size="1" name="area" placeholder="Where do you want to find the job?" autocomplete="off" onkeydown="if(this.value){this.style.background=''}return keySuggest(this,event)" onkeypress="if(this.value){this.style.background=''}" onfocus="if(this.value){this.style.background=''}document.getElementById('divSuggest').style.display='none';currentSuggest=0;" onblur="if(this.value){this.style.background=''}hideSuggest()" id="search">
+
+
+
+</div>
+</div>
+
+
+<div class="title searchtitle">
+<div><input class="search" type="submit" name="search" value="Search"></div>
+</div>
+
+
+
+
+</div></form>
+
+</div>
+
+<div align="center" width="100%" style="background-color:white;
+    height: 125px;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);">
+    
+    <div style="    width: 1070px;
+    padding: 17px;padding-bottom:5px;
+    text-align: left;
+    font-size: 18px;color:grey;">Top employers and now recruiting in US:</div>
+    
+    <div class="logo" style="width:1070px;">
+    
+    
+    
+    <img border="0" src="imgs/amazonlogo.png" width="172" height="75">
+    <img border="0" src="imgs/bt.png" width="172" height="75">
+    <img border="0" src="imgs/ibm.png" width="172" height="75">
+    <img border="0" src="imgs/jpmorgan.png" width="172" height="75">
+    <img border="0" src="imgs/vodafone.png" width="172" height="75"></div>
+    
+</div>
+
+<div align="center" width="100%">
+<div style="width:1080px;margin-top:50px;">
+<div style="text-align:left;padding:15px;margin-bottom:5px;font-size:18px;">Find my job by categories 
+	of US:</div>
+<div class="shadow browselinks" style="width:100%;margin-right:20px;background-color:white;float:left;">
+
+{cats}
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div align="center" width="100%" style="padding-top:200px;">
+<div style="width:1080px;margin-top:50px;">
+<div style="text-align:left;padding:15px;margin-bottom:5px;font-size:18px;    padding-top: 70px;">Find my job by 
+	an area of US:</div>
+<div class="shadow browselinks" style="width:100%;margin-right:20px;background-color:white;float:left;">
+
+{areas}
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+{footer}
+
+
+</body>
+
+</html>

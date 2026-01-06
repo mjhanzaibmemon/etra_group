@@ -1,0 +1,186 @@
+@import url("http://fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext");
+
+body{font-family: Lato; margin:0;padding:0;letter-spacing:0.2px;background-color:000;}
+
+
+
+a{color:#003e84;}
+
+/* Header main start */
+
+
+
+a.no-un,a.no-un:hover{text-decoration:none;}
+
+
+
+#headerholder{width:950px;text-align:left;margin:0 auto;padding: 0 10px;}
+#header{width:100%;height: 290px;padding:0px 0px 10px 0;text-align:left;background-color:black;
+-webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+border-bottom-width: 0;
+}
+
+#header #logo,#logomobile{margin-top:15px;margin-right:15px;float:left;}
+#header #logomobile {display:none;}
+
+#header #navigation{list-style:none;margin: 0;padding:0;display:inline-block;width:950px;}
+#header #navigation li{float:left;margin:0;padding:0;}
+#header #navigation li a{display:block;margin: 7px 20px 0 0;padding: 15px 0px 10px 0;line-height:10px;height:10px;text-decoration:none;color:#fff;font-weight:600;font-size:15px;}
+#header #navigation li a:hover,#header #navigation li a.selected{border-bottom:2px solid white;}
+
+#menuicon {display:none}
+#mobilenavigation{display:none}
+
+.hwidth{width:950px;}
+
+.habout{background: #bd1e24;
+background: -moz-linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+background: -webkit-gradient (linear,left bottom,right top,color-stop(0%,#bd1e24),color-stop(60%,#bd1e24),color-stop(60%,#cb2027),color-stop(100%,#cb2027));
+background: -webkit-linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+background: -o-linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+background: -ms-linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+background: linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+
+background-image: url('https://wac.a8b5.edgecastcdn.net/80A8B5/static-assets/assets/new-marketing/hero-img-49f554ac42434661d12cfe0d22959847.jpg');background-position:center -45%;
+}
+
+.hbrands{height:290px;background: #bd1e24;
+background: -moz-linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+background: -webkit-gradient (linear,left bottom,right top,color-stop(0%,#bd1e24),color-stop(60%,#bd1e24),color-stop(60%,#cb2027),color-stop(100%,#cb2027));
+background: -webkit-linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+background: -o-linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+background: -ms-linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);
+background: linear-gradient(30deg,#bd1e24 0,#bd1e24 60%,#cb2027 60%,#cb2027 100%);color:white;}
+
+
+.brands{width: 950px;height:initial;padding:10px;display:inline-block;}
+.brands .brandletter{width:950px;height: 42px;display:block;font-size:25px;font-weight:bold;padding-left:10px;text-align:left;border-bottom:2px solid #bd1e24;color:#bd1e24;}
+.brands .brandsub{width:953px;height:initial;display:inline-block;margin-bottom:15px;border-left: 1px solid #ccc;}
+.brands span{width: 179px;height:30px;display:block;float:left;height: 45px;line-height:45px;border-right:1px solid #ccc;border-bottom:1px solid #ccc;overflow: hidden;white-space: nowrap;
+text-overflow: ellipsis;
+padding: 0 5px;}
+
+.hcontact-us{}
+
+.lbrands{height:100%;}
+
+
+/* Header main finish */
+
+
+h1{font-size:50px;margin-top:50px;color:white;text-align:center;padding:25px 0px;text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.7);}
+
+.cabout{background: #339fcd;
+background: -moz-linear-gradient(30deg,#339fcd 0,#339fcd 60%,#3ea5ce 60%,#3ea5ce 100%);
+background: -webkit-gradient (linear,left bottom,right top,color-stop(0%,#339fcd),color-stop(60%,#339fcd),color-stop(60%,#3ea5ce),color-stop(100%,#3ea5ce));
+background: -webkit-linear-gradient(30deg,#339fcd 0,#339fcd 60%,#3ea5ce 60%,#3ea5ce 100%);
+background: -o-linear-gradient(30deg,#339fcd 0,#339fcd 60%,#3ea5ce 60%,#3ea5ce 100%);
+background: -ms-linear-gradient(30deg,#339fcd 0,#339fcd 60%,#3ea5ce 60%,#3ea5ce 100%);
+background: linear-gradient(30deg,#339fcd 0,#339fcd 60%,#3ea5ce 60%,#3ea5ce 100%);color:white;}
+
+.caccess,.cterms,.cprivacy,.ccontact{background: #eaeaea;
+background: -moz-linear-gradient(30deg,#eaeaea 0,#eaeaea 60%,#cb2027 60%,#e1e1e1 100%);
+background: -webkit-gradient (linear,left bottom,right top,color-stop(0%,#eaeaea),color-stop(60%,#eaeaea),color-stop(60%,#e1e1e1),color-stop(100%,#e1e1e1));
+background: -webkit-linear-gradient(30deg,#eaeaea 0,#eaeaea 60%,#e1e1e1 60%,#e1e1e1 100%);
+background: -o-linear-gradient(30deg,#eaeaea 0,#eaeaea 60%,#e1e1e1 60%,#e1e1e1 100%);
+background: -ms-linear-gradient(30deg,#eaeaea 0,#eaeaea 60%,#e1e1e1 60%,#e1e1e1 100%);
+background: linear-gradient(30deg,#eaeaea 0,#eaeaea 60%,#e1e1e1 60%,#e1e1e1 100%);
+
+}
+
+.ccontact{height:550px;}
+
+#newcontent .about{width:950px;height: 380px;margin:auto;padding:50px 0;text-align:left;}
+#newcontent .about input,#newcontent .about textarea{padding:10px;font-size:15px;margin-bottom:10px;font-family:'Lato';width:90%;float: left;}
+#newcontent  .scroll{width:950px;height:300px;padding:15px;text-align:left;overflow-y: auto;}
+#newcontent .storesabout{height:155px;} 
+#newcontent .contactcaution{width:330px;height:300px;float:left;font-size:16px;}
+#newcontent .contactformtbl{float:left;}
+
+/* Footer main start */
+
+#footer{padding-top:30px;height:60px;}
+
+#footerholder{width:930px;text-align:left;margin:0
+auto;padding:0
+10px}#footerholder{margin-top:20px}#footer{width:100%;height:120px;padding:0px
+0px 10px 0px;text-align:left;background-color:white;overflow:hidden}#footer
+#footernavholder{float:left;margin-top:10px}#footer #footernavholder
+.account{display:none}#footer #footernavholder
+.footernav{list-style:none;margin:0;padding:5px
+0 0 0;font-size:14px;height:25px}#footer #footernavholder .footernav
+li{margin-right:15px;padding:0
+10px 0 0;float:left;border-right:1px solid black}#footer #footernavholder .footernav li:last-child{border-right:0px}#footer #footernavholder .footernav li
+a{text-decoration:none}#footer #footernavholder .footernav li a:hover{text-decoration:underline}#footer #footernavholder
+.copyright{font-size:13px}#footer
+#logo{margin-top:15px;margin-right:10px;padding:0;float:left}
+
+/* Footer main finish */
+
+
+
+
+
+
+
+
+
+
+/* iPads, and many other tablets (portrait and landscape) ----------- *//*
+@media only screen and (min-width : 767px) and (max-width : 949px) {
+
+body{margin:0px;padding:0px;min-width:767px;max-width:949px;width:100%;overflow-x:hidden;position: relative;font-size:0.8em;}
+#headerholder,#footerholder,#bgsearch #bgsearchholder,#mobilenavholder{min-width:767px;max-width:949px;width:100%;margin:0;padding: 0 10px;display:hidden;}
+
+.hwidth{width:100%;}
+#newcontent .about{width:100%;height:auto;margin:auto;color:white;padding:50px 0;text-align:left;}
+#newcontent .about{width:95%;height:auto;margin:auto;color:white;padding:50px 0;text-align:left;}
+
+.hbrands .brands{padding-left:10px;display:inline-block;}
+
+/* Header ipad start */
+/* Header ipad finish */
+
+/*
+}
+
+
+
+@media only screen and (max-width: 766px) {
+	
+body{margin:0px;padding:0px;min-width:290px;max-width:766px;width:100%;overflow-x:hidden;position: relative;font-size:0.8em;}
+
+#headerholder,#footerholder,#bgsearch #bgsearchholder,#mobilenavholder{min-width:290px;max-width:767px;width:100%;margin:0;padding: 0 10px;display:hidden;}
+
+#bgsearch{width:100%;}*/
+
+/* Header mobile start */
+
+/* Header mobile finish */
+
+
+/* Footer mobile start */
+/* Footer mobile finish */
+
+/*.hwidth{width:100%;}
+
+#header{height:300px;}
+#header #logo{width:230px;height:auto;}
+#header #navigation{display:none;}
+
+#newcontent .about{width:100%;height:auto;margin:auto;color:white;padding:50px 0;text-align:left;}
+#newcontent .about{width:95%;height:auto;margin:auto;color:white;padding:50px 0;text-align:left;}
+
+#menuicon {display:block;float:right;margin-top:15px;margin-right:30px;}
+#menuicon:hover ul {display:block}
+
+#mobnavigation{list-style:none;margin: 0;padding:0;display:block;width:950px;background: rgba(0, 0, 0, 0.60);position:absolute;width:100%;top:50px;text-align:center;}
+#mobnavigation li{margin:0;padding:0;width:100%;height:30px;text-align:center;}
+#mobnavigation li a{display:block;margin: 15px 0;padding: 15px 0px 10px 0;line-height:10px;height:10px;text-decoration:none;color:#fff;font-weight:600;font-size:15px;}
+#mobnavigation li a:hover,#header #mobnavigation li a.selected{border-bottom:2px solid white;}
+
+.hbrands .brands{padding-left:10px;display:inline-block;}
+.hbrands .brands img{width:50px;height:50px;}
+
+}*/

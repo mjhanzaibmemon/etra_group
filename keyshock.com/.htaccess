@@ -1,0 +1,36 @@
+<files *.html>
+SetOutputFilter DEFLATE
+</files>
+
+
+Options All -Indexes
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+RewriteRule ^login$ login.php [L]
+
+RewriteRule ^cv-writing$ cv-writing.php?&%{QUERY_STRING} [L]
+RewriteRule ^our-approach$ approach.php [L]
+RewriteRule ^success-rate$ success-rate.php [L]
+RewriteRule ^success-stories$ success-stories.php [L]
+RewriteRule ^cv-review/([^/]*)$ evaluation-view.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^research$ research.html [L]
+RewriteRule ^contact-us$ contact-us.php [L]
+RewriteRule ^order/payment$ order/payment.php?&%{QUERY_STRING} [L]
+RewriteRule ^order/finish/$ order/finish.php?&%{QUERY_STRING} [L]
+RewriteRule ^privacy-policy$ privacy-policy.html [L]
+RewriteRule ^terms-and-conditions$ terms-and-conditions.html [L]
+RewriteRule ^about$ about-us-2.php [L]
+RewriteRule ^.well-known/apple-developer-merchantid-domain-association$ .well-known/apple-developer-merchantid-domain-association.txt?&%{QUERY_STRING} [L]
+
+
+RewriteRule ^success-stories/aliz$ cv-testimonial-temp.php?id=2&%{QUERY_STRING} [L]
+RewriteRule ^success-stories/bradley$ cv-testimonial-temp.php?id=4&%{QUERY_STRING} [L]
+RewriteRule ^success-stories/joshua$ cv-testimonial-temp.php?id=3&%{QUERY_STRING} [L]
+RewriteRule ^success-stories/maria$ cv-testimonial-temp.php?id=1&%{QUERY_STRING} [L]
+RewriteRule ^success-stories/paul$ cv-testimonial-temp.php?id=5&%{QUERY_STRING} [L]

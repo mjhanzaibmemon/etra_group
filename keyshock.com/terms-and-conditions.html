@@ -1,0 +1,392 @@
+<?php
+
+include('header.php');
+
+?>
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Terms & Conditions - Keyshock</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+	<link href="custom.css" rel="stylesheet">
+	<link rel="stylesheet" href="stylenew.css">
+
+	<style>
+		.navigation {
+			width: 280px;
+			display: table-cell;
+			background-color: #f5f5f5;
+		}
+		
+		.navigationheader {
+			background: #002d61!important;
+			border: 0;
+			font-weight: bold;
+			font-size: 16px;
+			color: #fff;
+			height: 39px;
+			line-height: 32px;
+			padding: 0 10px;
+			padding-top: 6px;
+			padding-left: 17px;
+		}
+		
+		.navigationlinks {
+			padding: 5px;
+		}
+		
+		.navigationlinks a {
+			display: block;
+			padding: .4em .5em .4em 2em;
+			position: relative;
+			color: #002d61;
+			text-decoration: none;
+		}
+		
+		.navigationlinks a:before {
+			content: "";
+			position: absolute;
+			top: .6em;
+			left: 1.1em;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: .3em 0 .3em .3em;
+			border-color: transparent transparent transparent #A11919;
+		}
+		
+		.navigationlinks a:hover {
+			background-color: #eee;
+		}
+		
+		.contents {
+			padding-left: 25px;
+			box-sizing: border-box;
+			width: 670px;
+			display: table-cell;
+			padding-top: 15px;
+		}
+		
+		.letter {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			margin-top: 46px;
+			display: inline-block;
+			padding: 15px 7px;
+			background-color: #8c8c8c;
+			border-radius: 5px;
+		}
+		
+		.letter li {
+			float: left;
+			text-align: center;
+			list-style: none;
+			font-size: 25px;
+			/* color: black; */
+			background-image: url(paper.png);
+			width: 84px;
+			height: 118px;
+			margin: 0 10px;
+			font-size: 13px;
+			vertical-align: middle;
+			padding: 39px 5px 0 5px;
+			box-sizing: border-box;
+			font-family: 'Bitter';
+			background-repeat: no-repeat;
+			line-height: initial;
+		}
+		
+		.letter li:hover {
+			opacity: 0.7;
+			cursor: pointer;
+		}
+		
+		.banner_cn {
+			background-color: #2c3e50;
+			color: white;
+			background-image: url('bg.jpg');
+			background-size: cover;
+			background-position: center;
+			height: 451px;
+		}
+		
+		.banner {
+			margin: auto;
+			padding: 62px 0;
+			text-align: left;
+			position: relative;
+		}
+		
+		.paper_icon {
+			position: absolute;
+			right: 0;
+			top: 30px;
+		}
+		
+		.banner_title {
+			font-size: 32px;
+			margin-top: 4px;
+		}
+		
+		.banner_subtitle {
+			font-size: 22px;
+			margin-top: 2px;
+		}
+		
+		.banner_details {
+			font-size: 19px;
+			font-weight: 100;
+			margin-top: 40px;
+			color: #dadada;
+		}
+		
+		#joblogos {
+			width: 100%;
+			max-width: 978px;
+			height: 231px;
+		}
+		
+		.sec_title {
+			padding-top: 35px;
+			font-size: 31px;
+		}
+		
+		.grey_sec {
+			background-color: #f2f2f2;
+			padding: 10px 0 40px 0;
+			display: inline-block;
+			width: 100%;
+		}
+		
+		.benefits_cn {
+			line-height: 25px;
+			line-height: 25px;
+		}
+		
+		#box-container {
+			margin: 0;
+			padding: 0
+		}
+		
+		.box {
+			list-style-type: none;
+			float: left;
+			margin-bottom: 10px;
+			margin-right: 10px;
+			border: 1px solid #ccc;
+		}
+		
+		.box:hover {
+			border: 1px solid grey;
+		}
+		
+		.box a {
+			display: block;
+			width: 100%;
+			height: auto;
+			position: relative;
+		}
+		
+		.box a img {
+			-webkit-back-visibility: hidden;
+			display: block;
+			vertical-align: bottom
+		}
+		
+		.box:nth-child(5n) {
+			margin-right: 0;
+		}
+		
+		.silverbtn {
+			height: 39px;
+			line-height: 39px;
+			width: 236px;
+			display: inline-block;
+			border-radius: 3px;
+			border: 1px solid #aeaeae;
+			font-weight: bold;
+			margin-top: 20px;
+			color: #444!important;
+			text-shadow: none;
+			background: #ffffff;
+			background: -moz-linear-gradient(top, #ffffff 0%, #ededed 100%);
+			background: -webkit-linear-gradient(top, #ffffff 0%, #ededed 100%);
+			background: linear-gradient(to bottom, #ffffff 0%, #ededed 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0);
+			text-decoration: none;
+			text-align: center;
+		}
+		
+		ol li {
+			margin-bottom: 15px;
+		}
+		
+		@media screen and (max-width:700px) {
+			.navigation {
+				display: block;
+				margin: auto;
+			}
+			.contents {
+				display: block;
+				width: 95%;
+				margin: auto;
+				padding: 20px 5px;
+			}
+		}
+
+	</style>
+</head>
+
+<body>
+
+
+	<?=$header ?>
+
+
+		<div style="padding: 15px 0 35px 0">
+
+
+			<div class="cnwidth">
+
+				<h1>Our Company's Terms & Conditions</h1>
+
+				<div style="margin-top:30px;display:table;">
+
+
+					<div class="navigation">
+
+						<div class="navigationheader">Support Navigation</div>
+
+						<div class="navigationlinks">
+
+							<a href="/">Keyshock US Home</a>
+							<a href="/cv-writing">CV Writing</a>
+							<a href="/our-approach">Our Approach</a>
+							<a href="/success-rate">Succcess Rate</a>
+							<a href="/research">Research & Studies</a>
+							<a href="/contact-us">Contact Us</a>
+							<a href="/terms-and-conditions">Terms & Conditions</a>
+							<a href="/privacy-policy">Privacy Policy</a>
+
+
+						</div>
+
+
+					</div>
+
+
+					<div class="contents">
+						<b>In using Keyshock services you agree to:</b><br><br>
+						<b>Service</b>
+						<ol>
+							<li>Keyshock providing an electronic service and does not ship any products to any address.</li>
+							<li> Keyshock may vary the advertising package offered to users from time to time with or without notice to users.</li>
+							<li> Keyshock not being involved in the process of posting an applicant’s CV to a specific job.</li>
+							<li> Be responsible for your own transaction made on Keyshock or made through Keyshock.</li>
+							<li> Be responsible for making a transaction within the law of the United States.</li>
+							<li> Keyshock cannot and does not confirm a user's true or false identity.</li>
+							<li> Keyshock cannot and does not confirm a job listing.</li>
+							<li> Provide Keyshock with true, accurate, honest information and maintain and update the information in a CV as circumstances require.</li>
+							<li> Be responsible for any content you submit on to Keyshock.</li>
+							<li> Submit information that is not fraudulent, false, inaccurate or misleading.</li>
+							<li> Not use Keyshock in a manner to expose security flaws.</li>
+							<li> Not use Keyshock in a manner which will exploit Keyshock.</li>
+							<li> Violate any law of the United States on Keyshock.</li>
+							<li> Find information that may be deceptive, harmful, inaccurate or offensive.</li>
+							<li> Not use software tools or online tools known as 'scraping' to extract information from Keyshock.</li>
+							<li> Not exploit, reproduce, copy, merge, sell the Keyshock website unless permitted by the company of Keyshock.</li>
+							<li> Not to send an enquiry or a message advertising a service to a Keyshock user.</li>
+							<li> Not to decompile, disassemble, reproduce, reverse engineer, copy, use, disclose or transfer the underlying source code of Keyshock.</li>
+							<li> Not to expropriate any system, data or information.</li>
+							<li> Not to cause Keyshock to lose service, or become a liability for Keyshock.</li>
+							<li> Not to use Keyshock services to commit to which is considered illegal, offensive, harassing or bullying in nature.</li>
+							<li> Images, text, buttons, source code may be licensed on specific terms to Keyshock.</li>
+							<li> Have your access to Keyshock terminated if Keyshock deems your use of Keyshock suspicious, or if you have breached this entire 'terms and conditions' agreement.</li>
+							<li> Contact Keyshock immediately if Keyshock has infringed any copyright.</li>
+							<li> Keyshock removing any content that may have infringed copyright without notice.</li>
+							<li> Keyshock reserves the right to terminate or refuse or cancel a CV service if Keyshock believes a user has violated these terms and conditions or law of the United States.</li>
+							<li> Submit your correct details, email address when filling out any of the forms on Keyshock.</li>
+							<li> Keyshock communicate with you through your given email address, and may communicate with you through other forms of communication including telephone and fax.</li>
+							<li> Have the option to opt out of Keyshock's mailing list.</li>
+							<li> Keyshock rights and privileges cannot be transferred to another organization without permission of Keyshock.</li>
+							<li> Keyshock stripping users of their rights to a CV at any given time if Keyshock deems the user to not be abiding by the terms and conditions.</li>
+							<li> Pay for products that you have applied for using the secure Payment method Keyshock has indicated.</li>
+							<li> Keyshock not being responsible for the accuracy of a CV, or pages linked to this website. Links outside of Keyshock are accessed by you at your own risk. Keyshock shall not take responsibility for the websites linked from Keyshock.</li>
+							<li> Keyshock delivering its purchased and non-purchased services mainly through the website Keyshock.com (https://www.Keyshock.com).</li>
+							<li> Keyshock disclaims any warranty of any kind which may be displayed on any of the Keyshock webpages.</li>
+							<li> After a package has been taken a number of updates will be allocated to that package depending on which package was taken.</li>
+						</ol>
+
+						<b>Payments and Refunds Policy</b>
+						<ol>
+
+							<li>Paypal Inc handling all transactions that are made on Keyshock</li>
+							<li> Direct payments and refunds are the only transactions made on Keyshock</li>
+							<li> Keyshock not receiving any form of pre-authorised debit or pre-authorised payment.</li>
+							<li> Pay the full amount of a package when the package is selected. </li>
+							<li> Contact Keyshock Support if an advertising package you have paid for is not functioning properly.</li>
+							<li> Any dispute(s) regarding payment(s) to Keyshock must be conveyed to Keyshock support. </li>
+							<li> All payments are within the law of United States. </li>
+							<li> Pay all amounts due to Keyshock. All payments must be paid in full without any withholding or deduction except required by law and shall not be entitled to assert any credit, set-off or counterclaim against Keyshock in order to justify withholding payment of any amount.</li>
+							<li> Keyshock does not guarantee the quality of a CV written by Keyshock. No refunds or credits will be given by Keyshock for failure to provide an interview or a job. </li>
+							<li> Keyshock reserves the right to vary its pricing and any structure of charges in place from time to time without any notification to any of its users/visitors. Any services provided after changes have taken effect will be subject to the relevant new pricing and/or new charging structure. </li>
+							<li> Refund requests be assessed and issued at Keyshock's discretion. Keyshock reserves the right to refuse a request for a refund however a valid reason will be provided to the Customer upon refusal.</li>
+
+
+						</ol>
+
+						<b>Content</b>
+						<ol>
+							<li>The user submitting their details to Jobrise, is responsible for the data, quality, accuracy and honesty of the information being submitted, and is completed to the best of the user knowledge and belief. The user shall immediately update or correct information on becoming aware of any errors or inaccuracies. Keyshock has the right to request any changes from the user and the user shall comply with the requests. </li>
+							<li> The CV submitted by the user will comply with all applicable laws, regulations and codes of practice in the United States and will not infringe any copyright, trademark or other intellectual property rights or rights of any third party whatsoever.</li>
+							<li> The CV submitted by the user has to be a CV that holds true information regarding the user. </li>
+							<li> The CV must also hold all necessary authorities, consents and licenses (necessary) to use, display, reproduce, and publish the content of the CV they submit to Keyshock and has authority to and grants Keyshock access to it for free. </li>
+							<li> The member has read and will abide by all notices posted on the Keyshock from time to time that are relevant to the provision of the CV packages.</li>
+							<li> The member shall not use Keyshock name, or any of its Logos, trade or services marks of Keyshock in a slanderous or malicious manner or in any way that might bring Jobrise, its directors or employees into shame nor shall the member disgrace any marketing material(s) provided to the member in a bad/derogatory way.</li>
+							<li> The member agrees that Keyshock may, but shall not be required to, identify the member as the source of the CV the user submits. </li>
+							<li> Keyshock not being responsible for any error or omissions in any CV. </li>
+							<li> Keyshock not guaranteeing that the Keyshock website will be up and running as it may go down occasionally due to technical issues.</li>
+							<li> Technological failure may stop the Keyshock services or prevent access to all or any part of the services displayed on Keyshock. Keyshock makes no representation or warranty that the website, the services, or the content will be accessible or available at all times, or that the whole or any part of the website, services will be free from error and while Keyshock will make reasonable attempts to notify the user in advance, it may suspend temporarily or alter the operation of the Keyshock services or without notice to the user. </li>
+							<li> Be contacted by Keyshock Support for various reasons through email. Therefore the user must ensure their email address is valid and working presently.</li>
+							<li> Any content related to adult content and drugs are forbidden and will be removed immediately from Keyshock without any form of notice.</li>
+							<li> Keyshock not being responsible to change the contents of any CV unless the change is deemed obligatory by Keyshock staff member(s).</li>
+
+						</ol>
+
+						<b>Warranty and Liability</b>
+						<ol>
+							<li>The information, the products and services provided by Keyshock is provided on an “as is” basis without any guarantees, conditions, or warranties as to its accuracy, whether explicitly or implicitly.</li>
+							<li> Keyshock not being liable for any damage or loss incurred including but not limited to loss of income or business revenue to the Customer or any companies or entities connected with the Customer as a result of using the services provided by Keyshock.</li>
+
+						</ol>
+
+					</div>
+
+
+
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+
+
+
+		<?=$footer ?>
+
+
+
+
+</body>
+
+</html>

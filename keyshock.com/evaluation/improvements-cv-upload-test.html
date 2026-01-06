@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Request CV Application Form - Keyshock</title>
+
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../stylenew.css">
+<style>
+
+body{background-color:white;}
+
+h1{color:#fff;font-size:36px;font-weight:bold;}
+.banner{padding:40px 0;}
+
+.iconsimagees table{margin-top:45px;}
+
+.iconsimagees table td{padding-bottom:40px; vertical-align: top;}
+
+.iconsimagees table td .feattitle{    font-size: 22px;display:block;margin-top:5px;}
+.iconsimagees table td .featdesc{    font-size: 17px;
+    color: #939393;}
+
+.iconsimagees table td.img{    width: 110px;}
+
+.ticks{     list-style-type: none;
+    padding-left: 28px;
+    margin-top: 30px;}
+
+.ticks li{    text-align: left;
+    background: transparent url('imgs/tick.png') no-repeat 0px 4px;
+    padding-left: 29px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #474747;}
+
+
+.number{float:left;font-size:49px;color:#51a5e1;}
+
+.numlabel{    float: left;
+    font-size: 22px;
+    line-height: 58px;
+    margin-left: 10px;}
+
+.greyarrow{    float: left;
+    margin-top: 8px;
+    margin-left: 9px;
+    margin-right: 12px;}
+    
+ .numbergrey{color:#e0e0e0;}
+    
+ .labelgrey{color:#b8b8b8;}
+    
+.headerbar{text-align:left;color:#51a5e1;border-bottom:2px solid #51a5e1;height:45px;line-height:45px;font-size:20px;}
+
+.tblform{margin-top:20px;}
+
+
+.tblform tr td:first-child{padding-top: 17px;vertical-align:top;}
+
+.tblform tr td{padding: 5px 0;font-size:16px;color:#646464;}
+
+.tblform tr td input{
+background: #f8f8f8; /* Old browsers */
+background: -moz-linear-gradient(top,  #f8f8f8 0%, #ffffff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #f8f8f8 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #f8f8f8 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+border:1px solid #bebebe;border-radius:2px;width:100%;height:40px;padding:0 10px;box-sizing:border-box;-moz-box-sizing: border-box;
+
+}
+
+.tblform tr td select{
+
+background: #f8f8f8; /* Old browsers */
+background: -moz-linear-gradient(top,  #f8f8f8 0%, #ffffff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #f8f8f8 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #f8f8f8 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+
+border:1px solid #bebebe;border-radius:2px;width:100%;height:40px;padding:0 10px;box-sizing:border-box;-moz-box-sizing: border-box;
+
+
+}
+
+.tblform tr td input:focus,.tblform tr td select:focus{border:1px solid #51a5e1;}
+
+
+.hint{font-size:15px;color:#26b161;font-style:italic;display:block;margin-bottom:19px;}
+
+.submitbtn{    width: 210px;
+    float: right;
+    padding:10px;line-height:15px;
+    height: 47px;
+    color: white;
+    border: 1px solid #066309;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 17px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#559057+0,4e9a50+100 */
+background: #559057; /* Old browsers */
+background:  -moz-linear-gradient(top,  #559057 0%, #4e9a50 100%); /* FF3.6-15 */
+background:  -webkit-linear-gradient(top,  #559057 0%,#4e9a50 100%); /* Chrome10-25,Safari5.1-6 */
+background:  linear-gradient(to bottom,  #559057 0%,#4e9a50 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#559057', endColorstr='#4e9a50',GradientType=0 ); /* IE6-9 */
+text-decoration: none;}
+
+.submitbtn:hover{    border: 1px solid #001d01;background:none;
+    background-color: #468a48;cursor:pointer;}
+
+
+.faq{    float: left;
+    width: 50%;
+    height: 180px;
+    text-align: left;
+    line-height: 25px;
+  padding-top:10px;
+  margin-bottom: 50px;
+  display:inline-block;
+    padding-right: 15px;
+    box-sizing: border-box;-moz-box-sizing: border-box;
+    background-color: #f5f5f5;
+    padding: 10px;}
+
+
+.tblform tr td input.submitfile{    width: 20%;background:none;
+    color: white;
+    border: 0;
+    font-size: 15px;
+    border: 1px solid #432525;
+    border-radius: 4px;
+    background-color: #468a48;}
+
+.tblform tr td input.submitfile:hover{cursor: pointer;}
+
+.steps{width:555px;display:inline-block;}
+
+.yourdetails{width:770px;margin-top:60px;margin-bottom:30px;}
+
+.faqtable{width:770px;margin-top:60px;display:inline-block; margin-bottom: 30px;}
+
+.pointsholder{height:236px;margin-top:75px;}
+.points{width:33%;height:236px;float:left;}
+.desc{text-align:center;font-weight:bold;}
+.icon{height:150px;width:100%;text-align:center;}
+.icon img{margin-top:10px;}
+
+.sec_title{font-size:18px;text-align: center;font-weight:bold;}
+.stats_cn{background-color:#e9e9e9!important;}
+.owl-dots{display:none!important;}
+
+.s3upload:hover{cursor: pointer;}
+
+@media screen and (max-width:795px) {
+
+
+
+.steps{    width: initial;
+    display: inline-block;
+    height: initial;
+    margin-top: 15px;
+    height: 44px;
+    margin: auto;}
+.number,.numlabel{font-size:16px;height:30px;display:block;    line-height: 54px;font-weight: bold;}
+
+.yourdetails{width:100%;}
+
+.headerbar{padding-left:20px;}
+
+
+
+.tblform tr td {
+    padding: 5px 10px;}
+
+
+.faq{    height: 270px;
+    margin-bottom: 0;}
+
+.faq:nth-child(odd) {
+    background: #f5f5f5;
+}
+
+.banner{padding: 10px 0;}
+
+h1{line-height:40px;}
+
+.pointsholder{height:initial;margin-top:30px;}
+.points{width:100%;height:initial;float:none;margin-top:30px;}
+.desc{text-align:center;font-weight:bold;}
+.icon{height:initial;width:100%;text-align:center;}
+.icon img{margin-top:10px;}
+
+
+
+}
+
+
+
+@media screen and (max-width:473px) {
+
+.greyarrow{opacity:0;width:20px;}
+
+}
+.tblform tr td:first-child {
+    padding-left: 15px;
+}
+
+.tblform tr td input.submitfile{width:27%;}
+
+.faqtable{width:initial;margin-top:30px;display:inline-block; margin-bottom: 30px;}
+
+</style>
+
+<script>
+
+function CheckForm(){
+ var em = /@/;
+ var pc = /[^ +](.*) (.*)/;
+
+
+
+
+ if(document.application.name.value==""){
+  window.alert('Please enter your full name.');
+  document.application.name.focus();
+  return false;
+ }
+
+  if(document.application.email.value==""){
+  window.alert('Please enter your email address.');
+  document.application.email.focus();
+  return false;
+ }
+
+
+
+
+
+
+}
+
+
+
+
+function getXY(o){ var l=0;var t=0; if (o.offsetParent){l=o.offsetLeft;t=o.offsetTop;while(o=o.offsetParent){l+=o.offsetLeft;t+=o.offsetTop;t=t+25;}}return new Array(l,t);} function createXMLHttpRequest(){var ua;if(window.XMLHttpRequest){try{ua=new XMLHttpRequest();}catch(e){ua = false;}} else if(window.ActiveXObject){try {ua = new ActiveXObject("Microsoft.XMLHTTP");}catch(e){ua = false;}} return ua;} var suggestObj,timerSuggest,currentSuggest=0; function keySuggest(obj,e){ if (window.event && e){e = window.event;} if(e){ if(e.keyCode==13||e.keyCode==9){document.getElementById('divSuggest').style.display='none';currentSuggest=0;return true;} if(e.keyCode==38){highlightSuggest(1);return false;} if(e.keyCode==40){highlightSuggest(2);return false;} } suggestObj=obj;setTimeout('loadSuggest()',1); } function loadSuggest(a){ if(!suggestObj.value){document.getElementById('divSuggest').style.display='none';currentSuggest=0;return true;} var uniqueid = '{uniqueid}'; var v= createXMLHttpRequest(); v.open('get', 'save.php?show='+suggestObj.name+'&q='+escape(suggestObj.value)+'&uid='+escape(uniqueid)); v.onreadystatechange = function(){if(this.readyState==4){if(this.responseText){processSuggest(this.responseText)}else{document.getElementById('divSuggest').style.display='none';currentSuggest=0;}}}; v.send(null); return true; } function processSuggest(r){clearInterval(timerSuggest); currentSuggest=0; document.getElementById('divSuggest').innerHTML=r; document.getElementById('divSuggest').style.display=''; alignSuggest(); } function alignSuggest(){ if(!suggestObj){return false;} var posXY=getXY(suggestObj); document.getElementById('divSuggest').style.top=posXY[1]+22+'px'; document.getElementById('divSuggest').style.left=posXY[0]+'px'; } function selectSuggest(v){ suggestObj.value=v;document.getElementById('divSuggest').style.display='none';currentSuggest=0;} function hideSuggest(){ timerSuggest=setTimeout("document.getElementById('divSuggest').style.display='none';currentSuggest=0;",20); } function highlightSuggest(v){ if(document.getElementById('divSuggest').style.display=='none'){return false} if(currentSuggest){document.getElementById('l'+currentSuggest).style.background='';} if(v==1){currentSuggest--;} if(v==2){currentSuggest++;} if(!document.getElementById('l'+currentSuggest)){currentSuggest=1;} document.getElementById('l'+currentSuggest).style.background='#f2f2f2'; suggestObj.value=document.getElementById('l'+currentSuggest).getAttribute('q');}
+
+function getOffset(e){var t=0;var n=0;while(e&&!isNaN(e.offsetLeft)&&!isNaN(e.offsetTop)){t+=e.offsetLeft-e.scrollLeft;n+=e.offsetTop-e.scrollTop;e=e.offsetParent}return{top:n,left:t}}function check(e){var t=e&&e.target||event&&event.srcElement;var n=document.getElementById("profile");var r=document.getElementById("userprofile");if(!checkParent(t,"profile")){if(checkParent(t,"userprofile")){if(n.style.display=="none"){n.style.left=getOffset(r).left;n.style.display="";document.getElementById("userprofile").style.color="black"}else{n.style.display="none"}}else{n.style.display="none"}}}function checkParent(e,t){while(e.parentNode){if(e==document.getElementById(t)){return true}e=e.parentNode}return false}document.onclick=check
+
+
+
+</script>
+
+</head>
+
+<body>
+
+<div id="divSuggest" style="border:1px solid #b1b1b1;background:#fff;display:none;position:absolute;z-index:15;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px"></div>
+
+
+{header}
+    
+<div class="banner_cn">
+
+
+<div class="cnwidth banner">
+
+
+<h1>Land 3x more interviews with<br>
+our professional CV Evaluation</h1>
+
+
+<div class="pointsholder">
+
+  <div class="points">
+    <div class="icon"><img src="https://keyshock.com/imgs/point1.png"></div>
+    <div class="desc">Full 3-page report<br>for improvements</div>
+  </div>
+
+  <div class="points">
+    <div class="icon"><img src="https://keyshock.com/imgs/point2.png"></div>
+    <div class="desc">Over 25,000+ CVs<br>Evaluated by our CV Experts</div>
+  </div>
+
+  <div class="points">
+    <div class="icon"><img src="https://keyshock.com/imgs/point3.png"></div>
+    <div class="desc">Extensive evaluations<br>from 10+ Qualified CV Experts</div>
+  </div>
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+<div class="benefits_cn stats_cn">
+
+
+      <div class="cnwidth" align="center">
+
+        <div class="sec_title">Trusted by professionals from:</div>
+
+<div class="mobilelogoshow">
+  <img src="https://keyshock.com/imgs/cl/moblogo.png">
+</div>
+<div class="owl-carousel owl-theme">
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/1.png"></h4>
+            </div>
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/2.png"></h4>
+            </div>
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/3.png"></h4>
+            </div>
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/4.png"></h4>
+            </div>
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/5.png"></h4>
+            </div>
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/6.png"></h4>
+            </div>
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/8.png"></h4>
+            </div>
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/11.png"></h4>
+            </div>
+            <div class="item">
+              <h4><img style="-webkit-user-select: none;" src="https://keyshock.com/imgs/cl/12.png"></h4>
+            </div>
+          </div>
+      </div>
+
+    </div>
+
+
+<div align="center">
+
+
+<div>
+
+
+<h1 style="    margin-top: 40px;
+    font-weight: 400;
+    font-size: 32px;line-height: 41px;color:black;">Takes less than two minutes!</h1>
+
+
+
+<form name="application" method="post" enctype="multipart/form-data" onsubmit="return CheckForm();">
+
+<div class="yourdetails">
+
+<table class="tblform" border="0" width="100%">
+  <tr>
+    <td>Full name*</td>
+    <td><input type="text" name="name" value="{fullname}" placeholder="Your Full Name" onkeydown="if(this.value){this.style.background=''}return keySuggest(this,event)" onkeypress="if(this.value){this.style.background=''}" onfocus="if(this.value){this.style.background=''}document.getElementById('divSuggest').style.display='none';currentSuggest=0;" onblur="if(this.value){this.style.background=''}hideSuggest()">
+    <span class="hint">example Theresa May</span></td>
+  </tr>
+  <tr>
+    <td>Email Address*</td>
+    <td><input type="text" name="email" value="{emailaddress}" placeholder="Your Email Address" onkeydown="if(this.value){this.style.background=''}return keySuggest(this,event)" onkeypress="if(this.value){this.style.background=''}" onfocus="if(this.value){this.style.background=''}document.getElementById('divSuggest').style.display='none';currentSuggest=0;" onblur="if(this.value){this.style.background=''}hideSuggest()">
+    <span class="hint">example teresa.may@gmail.com</span></td>
+  </tr>
+
+
+
+  <tr>
+    <td>Upload Your CV*</td>
+    <td>
+
+    {currents3file}{uploadforms}
+    <input type="file" name="file" size="20" class="s3upload" style="padding: 9px;width:70%"/>&#160;<input type="submit" name="submit" value="Attach CV" class="submitfile"/>
+
+    <span class="hint">example "My Cv.doc" or "My Cv.Psd"</span></td>
+
+
+
+
+
+
+  </tr>
+
+
+    <tr>
+
+      <td></td>
+
+      <td>
+<div style="height:30px;text-align:right;">
+
+
+<input type="hidden" name="uid" value="{uniqueid}" / >
+
+<button id="checkout-button" class="submitbtn" role="link" name="submit" value="Get a Free CV Review">Get a Free CV Review</button>
+<div id="error-message"></div>
+
+
+
+
+
+
+
+
+</div>
+
+</td>
+
+  </tr>
+
+
+</table>
+
+
+</div>
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<div class="yourdetails faqtable" style="display:none;">
+
+{errors}
+
+
+
+
+
+
+
+
+
+<div class="headerbar" style="margin-top:100px;">Frequently asked questions:</div>
+
+
+
+<div class="faq">
+  
+
+<b>What payment methods do you accept?</b><br>
+
+We accept all major credit and debit cards.
+
+<img src="/imgs/cards.png" style="    margin-top: 15px;">
+
+</div>
+
+
+<div class="faq">
+  
+
+<b>How do you ensure my payment details are secure/secure?</b><br>
+
+All of your purchases with Keyshock US CV Experts are confidential and protected with Stripe's SSL Certificate - which is on par with bank level security.
+</div>
+
+
+<div class="faq">
+  
+
+<b>Are you going to charge me again after this payment?</b><br>
+
+You will not be charged again after this payment. You simply pay the amount of $1.00 and that is the only payment we will take from the card provided.
+
+</div>
+
+
+<div class="faq">
+  
+
+<b>Are my details safe?</b><br>
+All the information you submit on this website is secured by the latest TLS technology. We also use "HTTPS" technology to ensure your details stay safe.
+</div>
+
+
+<div class="faq">
+  
+
+<b>What help & support do you offer?</b><br>
+
+We offer Premium e-mail support to all of our customers. You can also contact us using our online contact form. A member of our team will be happy to help you with any questions within 24 working hours.
+
+</div>
+
+
+
+<div class="faq">
+  
+
+<b>When will I get access to my Expert CV Evaluation?</b><br>
+
+Once the payment is successfully processed to Keysok CV Experts, we will immediately begin the process of evaluating your CV. The process takes upto 48-working hours
+</div>
+
+
+
+More questions? Please contact our support team on <a href="https://keyshock.com/contact-us">here</a>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{footer}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="../owl.carousel.min.js"></script>
+
+                <script>
+            $(document).ready(function() {
+              $('.owl-carousel').owlCarousel({
+                pagination: false,
+                margin: 10,
+                responsiveClass: true,
+                responsive: {
+                  0: {
+                    items: 1,
+                    autoplay: 1700,
+                    autoplayTimeout: 2000,
+                    loop: true,
+                    nav: false
+                  },
+                  600: {
+                    items: 3,
+                    autoplay: 1700,
+                    loop: true,
+                    autoplayTimeout: 2000,
+                    nav: false
+                  },
+                  1000: {
+                    items: 5,
+                    loop: true,
+                    autoplay: 1700,
+                    autoplayTimeout: 2000,
+                    nav: false,
+                    margin: 10
+                  }
+                }
+              })
+            })
+          </script>
+
+</body>
+
+</html>

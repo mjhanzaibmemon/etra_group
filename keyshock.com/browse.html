@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>{title}</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+</head>
+<link rel="stylesheet" type="text/css" href="stylenew.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7812529291084464",
+          enable_page_level_ads: true
+     });
+</script>
+<style>
+
+.suggest{    width: 306px;}
+
+.searchsection{    width: 840px;
+    display: inline-block;margin-top:0;}
+
+
+.searchsection .title{width:326px;float:left;    text-align: left;    margin-top: 20px;margin-right:30px;}
+
+.searchsection .searchtitle{        width: 55px; margin-top: 45px;}
+
+
+
+.titlebar{text-align:left;    font-size: 35px;
+    text-align: left;
+    padding: 10px;}
+
+.titlebar .furtherinfo{color:grey;    color: grey;
+    font-size: 17px;
+    display: block;}
+
+
+
+.listing{    border-bottom: 1px solid #ccc;
+    padding: 27px 18px;
+    text-align: left;overflow:hidden;}
+.listing a.title{    font-weight: 600;
+    font-size: 20px;
+    color: #00234A;
+    text-decoration: none;
+    background-repeat: no-repeat;
+
+   background-image: url('imgs/right-arrow.png');
+    padding-left: 26px;}
+    .listing a.title:hover{text-decoration:underline;}
+.listing .desc{font-size:15px;color:black;    margin-top: 15px;}
+
+.listing .bar {    height: 23px;
+    margin-top: 14px;}
+.listing .bar .heading{font-weight:600;font-size:17px;width:150px;float:left;}
+.listing .bar .headinginfo{float:left;    color: #5CB85C;  width: 490px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;}
+
+.rightbar{width:300px;float:left;overflow:hidden;}
+.rightbar .titlesection{    text-align: left;
+    border-radius: 2px;
+    background-color: #5F5F5F;
+    color: white;
+    padding: 12px;}
+
+.rightbar .cats{text-align:left;padding:10px;overflow-y:scroll;background-color:white;height:100%;max-height:400px;line-height: 25px;}
+.rightbar .cats a{text-decoration:none;color:#003e84;}
+.rightbar .cats a:hover{text-decoration:underline;}
+
+
+
+</style>
+
+<script>
+
+function getXY(o){ var l=0;var t=0; if (o.offsetParent){l=o.offsetLeft;t=o.offsetTop;while(o=o.offsetParent){l+=o.offsetLeft;t+=o.offsetTop;t=t+25;}}return new Array(l,t);} function createXMLHttpRequest(){var ua;if(window.XMLHttpRequest){try{ua=new XMLHttpRequest();}catch(e){ua = false;}} else if(window.ActiveXObject){try {ua = new ActiveXObject("Microsoft.XMLHTTP");}catch(e){ua = false;}} return ua;} var suggestObj,timerSuggest,currentSuggest=0; function keySuggest(obj,e){ if (window.event && e){e = window.event;} if(e){ if(e.keyCode==13||e.keyCode==9){document.getElementById('divSuggest').style.display='none';currentSuggest=0;return true;} if(e.keyCode==38){highlightSuggest(1);return false;} if(e.keyCode==40){highlightSuggest(2);return false;} } suggestObj=obj;setTimeout('loadSuggest()',1); } function loadSuggest(a){ if(!suggestObj.value){document.getElementById('divSuggest').style.display='none';currentSuggest=0;return true;} var v= createXMLHttpRequest(); v.open('get', 'auto_suggest.php?show='+suggestObj.name+'&q='+escape(suggestObj.value)); v.onreadystatechange = function(){if(this.readyState==4){if(this.responseText){processSuggest(this.responseText)}else{document.getElementById('divSuggest').style.display='none';currentSuggest=0;}}}; v.send(null); return true; } function processSuggest(r){clearInterval(timerSuggest); currentSuggest=0; document.getElementById('divSuggest').innerHTML=r; document.getElementById('divSuggest').style.display=''; alignSuggest(); } function alignSuggest(){ if(!suggestObj){return false;} var posXY=getXY(suggestObj); document.getElementById('divSuggest').style.top=posXY[1]+22+'px'; document.getElementById('divSuggest').style.left=posXY[0]+'px'; } function selectSuggest(v){ suggestObj.value=v;document.getElementById('divSuggest').style.display='none';currentSuggest=0;} function hideSuggest(){ timerSuggest=setTimeout("document.getElementById('divSuggest').style.display='none';currentSuggest=0;",20); } function highlightSuggest(v){ if(document.getElementById('divSuggest').style.display=='none'){return false} if(currentSuggest){document.getElementById('l'+currentSuggest).style.background='';} if(v==1){currentSuggest--;} if(v==2){currentSuggest++;} if(!document.getElementById('l'+currentSuggest)){currentSuggest=1;} document.getElementById('l'+currentSuggest).style.background='#f2f2f2'; suggestObj.value=document.getElementById('l'+currentSuggest).getAttribute('q');}
+
+function getOffset(e){var t=0;var n=0;while(e&&!isNaN(e.offsetLeft)&&!isNaN(e.offsetTop)){t+=e.offsetLeft-e.scrollLeft;n+=e.offsetTop-e.scrollTop;e=e.offsetParent}return{top:n,left:t}}function check(e){var t=e&&e.target||event&&event.srcElement;var n=document.getElementById("profile");var r=document.getElementById("userprofile");if(!checkParent(t,"profile")){if(checkParent(t,"userprofile")){if(n.style.display=="none"){n.style.left=getOffset(r).left;n.style.display="";document.getElementById("userprofile").style.color="black"}else{n.style.display="none"}}else{n.style.display="none"}}}function checkParent(e,t){while(e.parentNode){if(e==document.getElementById(t)){return true}e=e.parentNode}return false}document.onclick=check
+
+</script>
+
+<body>
+
+<div id="divSuggest" style="border:1px solid #b1b1b1;background:#fff;display:none;position:absolute;z-index:15;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px"></div>
+
+{header}
+
+<div align="center" style="background-color:#2c3e50;height: 115px;   color: #ccc;">
+<form method="get" action="redirect.php">
+<div class="searchsection" align="center" style="">
+
+<div class="title">What?<div><input class="input" size="1" name="type" placeholder="What type of occupation are you looking for?" autocomplete="off" onkeydown="if(this.value){this.style.background=''}return keySuggest(this,event)" onkeypress="if(this.value){this.style.background=''}" onfocus="if(this.value){this.style.background=''}document.getElementById('divSuggest').style.display='none';currentSuggest=0;" onblur="if(this.value){this.style.background=''}hideSuggest()" id="search"></div>
+</div>
+
+<div class="title">Where?<div><input class="input" size="1" name="area" placeholder="City, District or Region?" autocomplete="off" onkeydown="if(this.value){this.style.background=''}return keySuggest(this,event)" onkeypress="if(this.value){this.style.background=''}" onfocus="if(this.value){this.style.background=''}document.getElementById('divSuggest').style.display='none';currentSuggest=0;" onblur="if(this.value){this.style.background=''}hideSuggest()" id="search"></div>
+</div>
+
+
+<div class="title searchtitle">
+<div><input class="search" type="submit" name="search" value="Search"></div>
+</div>
+
+
+
+
+</div></form>
+
+</div>
+
+<div align="center" width="100%">
+<div style="width:1020px;margin-top:50px;    display: inline-block;overflow:hidden;">
+
+<div class="titlebar">{title}<br><span class="furtherinfo">{searchdesc}</span></div>
+
+<div style="min-height:400px;width:700px;margin-right:20px;background-color:white;float:left;    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);">
+	
+	
+	<div class="listing">
+	
+	
+	<script type="text/javascript">
+    google_ad_client = "ca-pub-7812529291084464";
+    google_ad_slot = "2609372089";
+    google_ad_width = 728;
+    google_ad_height = 90;
+</script>
+<!-- KS SEARCH ADD -->
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+	
+	</div>
+	
+	{listings}</div>
+
+
+<div class="rightbar">
+
+<div class="titlesection">{extrightbar1}</div>
+
+<div class="cats">
+<a href="{allcats}">All categories</a><br>
+{catshref}
+
+
+</div>
+
+
+
+<div class="titlesection" style="margin-top:30px;">{extrightbar2}</div>
+
+<div class="cats">
+
+<a href="{alllocations}">All locations</a><br>
+{locationshref}
+
+
+</div>
+
+
+	</div>
+
+
+
+
+</div>
+
+</div>
+
+{footer}
+
+</body>
+
+</html>
