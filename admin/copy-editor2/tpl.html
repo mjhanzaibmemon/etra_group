@@ -1,0 +1,481 @@
+<!-- @meta -->
+
+<title>Copy Editor</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<style>
+    main *,
+    main *::before,
+    main *::after {
+        box-sizing: border-box;
+    }
+
+    main button {
+        cursor: pointer;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #F8F8F8;
+    }
+
+    .no-scroll {
+        overflow: hidden;
+    }
+
+    main {
+        padding: 32px 20px 0;
+    }
+
+    main h1 {
+        margin-top: 0;
+    }
+
+    main input {
+        font-size: inherit;
+        border-radius: 6px;
+        border: 1px solid #BEBEBE;
+        padding: 8px 12px;
+    }
+
+    main .box {
+        margin-top: 32px;
+        padding: 10px;
+        background-color: #FFF;
+    }
+
+    main .box form {
+        display: flex;
+    }
+
+    main .box form>b {
+        flex-shrink: 0;
+        width: 130px;
+        margin-right: 8px;
+    }
+
+    main .box1 form {
+        align-items: center;
+    }
+
+    main .box1 form>div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    main .btn {
+        font-size: 13px;
+        border: none;
+        border-radius: 6px;
+        padding: 8px;
+        background-color: transparent;
+        text-transform: capitalize;
+    }
+
+    main .btn-primary {
+        background-color: #09B5FF;
+        color: #FFF;
+    }
+
+    main .btn-secondary {
+        border: 1px solid black;
+    }
+
+    main h1 {
+        text-align: center;
+    }
+
+    main .box2 .update-status {
+        font-size: 13px;
+        font-weight: 600;
+        margin-top: 12px;
+        text-transform: capitalize;
+    }
+
+    main .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    main .popup.active {
+        display: flex;
+    }
+
+    main .popup .content {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #popup1 .content {
+        width: 90%;
+        max-height: 90%;
+        overflow: auto;
+        padding: 32px;
+    }
+
+    #popup1 .title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    #popup1 .placeholder {
+        font-size: 18px;
+        margin-right: 4px;
+    }
+
+    #popup1 .update-status {
+        color: #00941B;
+    }
+
+    #popup1 textarea {
+        display: flex;
+        font-size: 1rem;
+        width: 100%;
+        height: 325px;
+        border-radius: 6px;
+        border: 1px solid #BEBEBE;
+        padding: 10px;
+        margin: 16px 0;
+        resize: none;
+    }
+
+    #popup1 .table-container {
+        margin-top: 40px;
+        padding: 20px;
+        border: 1px solid #C3C3C3;
+        border-radius: 6px;
+        background-color: #F8F8F8;
+    }
+
+    #popup1 table th,
+    #popup1 table td {
+        text-align: left;
+    }
+
+    #popup1 table th {
+        font-size: 18px;
+    }
+
+    #popup2 .content {
+        padding: 20px 15px;
+    }
+
+    #popup2 form {
+        display: flex;
+        gap: 5px;
+    }
+
+    #popup2 .title {
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+
+    #popup2 input {
+        flex: 1;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        main {
+            font-size: 20px;
+        }
+
+        main input {
+            width: 300px;
+        }
+
+        main .btn {
+            min-width: 105px;
+        }
+
+        main .btn,
+        main .box2 .update-status {
+            font-size: 1rem;
+        }
+
+        #popup1 .title,
+        #popup1 .placeholder {
+            font-size: 23px;
+        }
+
+        #popup1 .update-status {
+            font-size: 19px;
+        }
+
+        #popup1 textarea {
+            font-size: inherit;
+            width: 533px;
+        }
+
+        #popup1 table th {
+            font-size: inherit;
+        }
+        
+        #popup1 table td{
+            font-size: 17px;
+        }
+
+        #popup2 .title {
+            font-size: inherit;
+            margin-bottom: 20px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        main input {
+            width: 533px;
+        }
+    }
+</style>
+
+<!-- @head_tags -->
+
+<main>
+    <h1>Content edit</h1>
+    <div class="box box1">
+        <span style="text-align: center;display: block;color: red;">{error}</span>
+        <form method="post">
+            <b>URL</b>
+            <div>
+                <input list="urls" id="url" name="url" value="{inp_url}" onchange="assign_main_url();" autocomplete="off"
+                    placeholder="Search for a url...">
+
+                <datalist id="urls">
+                    {urlHtml}
+                </datalist>
+                <button class="btn btn-primary" name="url_submit" value="1" type="submit">submit</button>
+                <button id="arrange-by-file-btn" class="btn btn-secondary" type="button" onclick="checkIfMainUrlExist();">arrange by file</button>
+                <!-- <button id="add-placeholder-btn" class="btn btn-secondary" onclick="redirectaddpage();" type="button">add new placeholder</button> -->
+            </div>
+        </form>
+    </div>
+   
+    <!-- @content_input -->
+    <div class="box box2">
+        <form>
+            <b class="placeholder">{name}</b>
+            <div>
+                <input type="text" value="{content}" readonly>
+                <div class="update-status">last updated by {updatedBy}</div>
+            </div>
+        </form>
+    </div>
+    <!-- @content_input -->
+    <div id="popup1" class="popup">
+        <div class="content">
+            <form>
+                <div class="title" ></div>
+                <b class="placeholder" style="color: blue; margin-right: 5px;" id="nameTitle"></b>
+                <span class="update-status" style="color: green;"></span>
+                <br>
+                <textarea id="contentValueId"></textarea>
+                <div>
+                    <button class="btn btn-primary" type="button" onclick="finishEditing2();">Finish Editing</button>
+                </div>
+                 <span id="finishSucess"
+                    style="color: green;font-size: 15px;font-weight: 600;margin-top: 10px;"></span>
+            </form>
+            <div class="table-container">
+                <table style="width: 100%;">
+                    <thead>
+                        <th>Name</th>
+                        <th style="width: 50%;">Content</th>
+                        <th>Last Updated</th>
+                        <th>Action</th>
+                        <th>Approved</th>
+                    </thead>
+                    <tbody id="bindHistoryContent">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="popup2" class="popup">
+        <div class="content">
+            <div class="title"></div>
+            <form style="display: flex; gap: 5px;" method="post">
+                <input type="text" style="flex: 1;" name="url_file">
+                <input name="main_url" id="main_url" value="{inp_url}" type="hidden">
+                <input name="url_submit" value="1" type="hidden">
+                <button class="btn btn-primary" name="arrangeByFile" value="1">submit</button>
+            </form>
+        </div>
+    </div>
+</main>
+<script>
+    const URL = document.getElementById('url');
+    const boxes = document.querySelectorAll('.box2');
+    try {
+        const popups = document.querySelectorAll('.popup');
+        popups.forEach((popup) => {
+            popup.addEventListener('click', (e) => {
+                if (e.target.classList.contains('popup')) {
+                    popup.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+        });
+    } catch (error) {
+        console.log(error);
+    }
+    try {
+        const popup = document.getElementById('popup1');
+        boxes.forEach((box) => {
+            const input = box.querySelector('input');
+            input.addEventListener('click', () => {
+                popup.classList.add("active");
+                document.body.classList.add("no-scroll");
+                popup.querySelector('.title').textContent = URL.value;
+                popup.querySelector('.placeholder').textContent = box.querySelector('.placeholder').textContent;
+                popup.querySelector('.update-status').textContent = "(" + box.querySelector('.update-status').textContent + ")";
+                popup.querySelector('textarea').value = box.querySelector('input').value;
+                getHistoryContent();
+            });
+        });
+    } catch (error) {
+        console.log(error);
+    }
+
+
+    function finishEditing2() {
+        var contentBoxVal = $("#contentValueId").val().trim();
+        var url = $("#url").val().trim();
+        var name = $("#nameTitle").text().trim();
+
+        if (contentBoxVal == "") {
+            alert('Content can\'t be blank');
+            return;
+        }
+      
+        if (url == "") {
+            alert('Url can\'t be blank');
+            return;
+        }
+        $.ajax({
+
+            url: '/admin/api/language_aligment_handler.php',
+            type: 'POST',
+            data: {
+                'type': 'finishEditing2',
+                'url': url,
+                'content': contentBoxVal,
+                'name': name,
+            },
+            dataType: 'json',
+            success: function (data) {
+
+                if (data != null) {
+                    $("#finishSucess").html(data.message);
+                    getHistoryContent();
+                }
+                setTimeout(function () {
+                    $("#finishSucess").html('');
+                }, 2000)
+
+            },
+
+        });
+
+    }
+    function getHistoryContent() {
+
+        var url = $("#url").val().trim();
+        var name = $("#nameTitle").text().trim();
+
+        $.ajax({
+
+            url: '/admin/api/language_aligment_handler.php',
+            type: 'POST',
+            data: {
+                'type': 'getHistoryContent2',
+                'url': url,
+                'name': name,
+            },
+            dataType: 'json',
+            success: function (data) {
+                $("#bindHistoryContent").html('');
+
+                if (data != null) {
+
+                    if (data.message) {
+                        alert(data.message);
+                        return;
+                    }
+
+                    var htm = "";
+                    var i;
+                    var approve = '';
+                    for (i = 0; i < data.length; i++) {
+                        if(data[i].approved == 1){
+                            approve = 'Approved';
+                        }else{
+                            approve = 'Not Approved';
+                        }
+
+                        htm += '<tr>' +
+                            '<td>' + data[i].name + '</td>' +
+                            '<td id="contentId' + i + '">' + data[i].content + '</td>' +
+                            '<td>' + data[i].time + '</td>' +
+                            '<td><a style="float:left;width: 100px;text-align:center;" onclick="restoreContent(' + i + ');" class="btn btn-primary">Restore</a></td>' +
+                            '<td>' + approve + '</td>' +
+                            '</tr>';
+                    }
+                    $("#bindHistoryContent").html(htm);
+                } else {
+                    $("#bindHistoryContent").html('No History Found');
+                }
+
+            },
+
+        });
+    }
+
+    function restoreContent(key) {
+        var val = $('#contentId' + key).html().trim();
+
+        $("#contentValueId").val(val);
+
+    }
+
+    function assign_main_url() {
+        var url = $("#url").val().trim();
+        $("#main_url").val(url);
+    }
+
+    function checkIfMainUrlExist(){
+        var url = $("#url").val().trim();
+        if(url == ""){
+            alert('Please select a main url first');
+            return;
+        }
+
+        const popup = document.getElementById('popup2');
+        const button = document.getElementById('arrange-by-file-btn');
+        popup.classList.add("active");
+        document.body.classList.add("no-scroll");
+        popup.querySelector('.title').innerText = URL.value;
+       
+    }
+
+    function redirectaddpage(){
+        window.location.href = '/admin/copy-editor/add.php/';
+    }
+</script>

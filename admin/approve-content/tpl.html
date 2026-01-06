@@ -1,0 +1,217 @@
+<!-- @meta -->
+
+<title>Edit & Approve</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<style>
+    main *,
+    main *::before,
+    main *::after {
+        box-sizing: border-box;
+    }
+
+    main button {
+        cursor: pointer;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #F8F8F8;
+    }
+
+    main {
+        padding-top: 32px;
+        font-size: 20px;
+    }
+
+    main h1 {
+        margin-top: 0;
+    }
+
+    main .container {
+        margin-top: 32px;
+        padding: 24px;
+        background-color: #FFF;
+        margin: 0 auto;
+    }
+
+    main .btn {
+        min-width: 105px;
+        border: none;
+        border-radius: 6px;
+        padding: 8px;
+        background-color: transparent;
+        text-transform: capitalize;
+    }
+
+    main .btn-primary {
+        background-color: #09B5FF;
+        color: #FFF;
+    }
+
+    main .btn-secondary {
+        border: 1px solid black;
+    }
+
+    main .btn-danger {
+        background-color: #FFF8F8;
+        color: #CA0003;
+        border: 1px solid #CA0003;
+    }
+
+    main h1 {
+        text-align: center;
+    }
+
+    main .boxes {
+        margin-top: 24px;
+        display: flex;
+        gap: 28px;
+    }
+
+    main textarea {
+        flex: 1;
+        resize: none;
+        height: 458px;
+        border-radius: 5px;
+        border: 1px solid #B9B9B9;
+        padding: 12px;
+        font-size: inherit;
+    }
+
+    main .btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 28px;
+        margin-top: 28px;
+    }
+
+    #URL {
+        text-decoration: underline;
+        margin-bottom: 4px;
+    }
+
+    #placeholder {
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    @media screen and (min-width: 768px) {
+        main .container {
+            max-width: 768px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        main .container {
+            max-width: 918px;
+        }
+    }
+</style>
+
+<!-- @head_tags -->
+
+<main>
+    <h1>Approve content edits</h1>
+    <div id="msg" style="text-align: center;">{msg}</div>
+    <!-- @contentHtml -->
+    <div class="container" id="containerId{cid}">
+        <div >{url}</div>
+        <div >{name}</div>
+        <div class="boxes">
+            <textarea readonly>{content_data}</textarea>
+            <textarea readonly>{content_history_data}</textarea>
+        </div>
+        <div class="btn-container">
+            <button class="btn btn-danger" onclick="deleteAll({cid},{chid})">delete</button>
+            <button class="btn btn-secondary" onclick="keepSame({cid},{chid})">keep the same</button>
+            <button class="btn btn-primary" onclick="approve({cid},{chid});">submit</button>
+        </div>
+    </div>
+    <!-- @contentHtml -->
+</main>
+
+<script>
+    
+    function approve(cid, chid){
+
+
+        $.ajax({
+            url: '/admin/api/language_aligment_handler.php',
+            type: 'POST',
+            data: {
+                cid: cid,
+                chid: chid,
+                type: 'approve'
+            },
+            dataType: 'json',
+            success: function(response){
+               alert(response.message);
+               if(response.message == 'Approved'){
+                     $('#containerId'+cid).remove();
+                     $('#msg').html('All caught!!');
+               }
+            }
+        });
+
+    }
+
+    function keepSame(cid, chid){
+
+        $.ajax({
+            url: '/admin/api/language_aligment_handler.php',
+            type: 'POST',
+            data: {
+                cid: cid,
+                chid: chid,
+                type: 'keepSame'
+            },
+            dataType: 'json',
+            success: function(response){
+                alert(response.message);
+                if(response.message == 'Done'){
+                     $('#containerId'+cid).remove();
+                     $('#msg').html('All caught!!');
+                }
+            }
+        });
+        
+    }
+
+    function deleteAll(cid, chid){
+
+        if (!confirm("Are you sure you want to delete?")) {
+            return; // stop if user presses Cancel
+        }
+
+
+        $.ajax({
+            url: '/admin/api/language_aligment_handler.php',
+            type: 'POST',
+            data: {
+                cid: cid,
+                chid: chid,
+                type: 'deleteAll'
+            },
+            dataType: 'json',
+            success: function(response){
+                alert(response.message);
+                if(response.message == 'Deleted'){
+                     $('#containerId'+cid).remove();
+                     $('#msg').html('All caught!!');
+                }
+            }
+        });
+        
+    }
+
+</script>

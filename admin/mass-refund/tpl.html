@@ -1,0 +1,198 @@
+<!-- @meta -->
+
+<title>Email Support</title>
+
+<!-- @meta -->
+
+<!-- @head_tags -->
+
+<style>
+
+    .emailsuccess{
+        background: #a3ffa3;
+        padding: 8px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    
+    .box23 {
+        margin: 66px auto;
+        width: 950px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: left;
+        padding: 15px;
+    }
+
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+
+    h1 {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .label {
+        margin-top: 35px;
+    }
+
+    .container div input,
+    .selectric,
+    .input,
+    .btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100px;
+        text-align: center;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    .cke_reset_all {
+        background: #f7f7f7 !important;
+    }
+
+    .articles {
+        width: 100%;
+        display: contents;
+    }
+
+    .articles tr td {
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #000;
+        padding: 10px;
+        vertical-align: top
+    }
+
+    .articles tr:nth-child(2) td {
+        background: #f1f1f1;
+        font-weight: bold;
+    }
+
+    .status {
+        font-weight: bold;
+        height: 23px;
+        width: 55px;
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .btn {
+        margin: 0 !important;
+    }
+
+    .reportmessage {
+        float: left;
+        width: 100%;
+        height: 350px;
+        box-sizing: border-box;
+        margin: 0px;
+        margin-bottom: 20px;
+        resize: vertical;
+        padding: 10px;
+        font-family: 'Open Sans';
+        border-radius: 5px;
+        border: 1px solid #bbb;
+    }
+
+    .emailsuccess {
+        margin-bottom: 15px;
+    }
+
+    .nlbtn {
+        float: left;
+        margin-right: 20px !important;
+        width: 176px !important;
+        margin-bottom: 10px !important;
+        border: 1px solid grey;
+        border-radius: 50px;
+    }
+
+    .clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+    }
+</style>
+
+<!-- @head_tags -->
+
+
+<main>
+    <h1 style="text-align:center;margin-top:35px;">Mass Refunds 💳</h1>
+
+    <div class="box23 clearfix">
+
+        <span style="float: right;padding-top: 10px; color: grey">{totalleft}</span>
+
+
+        <form action="" id="refundForm" method="POST" onsubmit="return prepareFormData()">
+            <table class="articles">
+                
+                {result}
+            </table>
+        </form>
+        
+    </div>
+</main>
+
+
+<script>
+
+    function prepareFormData() {
+        // Collect all `id`, `orderid`, and `order_session` values
+        const ids = [];
+        const orderIds = [];
+        const orderSessions = [];
+        const alorderids = [];
+        const alautolikesids = [];
+        const percentages = [];
+
+        // Find all the hidden inputs with the relevant names
+        // document.querySelectorAll('input[name="id"]').forEach(input => ids.push(input.value));
+        document.querySelectorAll('input[name="orderid"]').forEach(input => orderIds.push(input.value));
+        document.querySelectorAll('input[name="order_session"]').forEach(input => orderSessions.push(input.value));
+        document.querySelectorAll('input[name="alorderid"]').forEach(input => alorderids.push(input.value));
+        document.querySelectorAll('input[name="alautolikesid"]').forEach(input => alautolikesids.push(input.value));
+        document.querySelectorAll('input[name="percentage"]').forEach(input => percentages.push(input.value));
+
+        // Prepare comma-separated strings
+        // const idsString = ids.join(',');
+        const orderIdsString = orderIds.join(',');
+        const orderSessionsString = orderSessions.join(',');
+        const alorderidsString = alorderids.join(',');
+        const alautolikesidsString = alautolikesids.join(',');
+        const percentagesString = percentages.join(',');
+
+        // Append as hidden inputs to the form
+        const form = document.getElementById('refundForm');
+        // appendHiddenInput(form, 'ids', idsString);
+        appendHiddenInput(form, 'orderids', orderIdsString);
+        appendHiddenInput(form, 'order_sessions', orderSessionsString);
+        appendHiddenInput(form, 'alorderids', alorderidsString);
+        appendHiddenInput(form, 'alautolikesids', alautolikesidsString);
+        appendHiddenInput(form, 'percentages', percentagesString);
+
+        // Allow form submission
+        return true;
+    }
+
+    function appendHiddenInput(form, name, value) {
+        let input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value;
+        form.appendChild(input);
+    }
+</script>
