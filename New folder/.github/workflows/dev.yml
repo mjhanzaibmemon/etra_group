@@ -10,7 +10,5 @@ jobs:
     environment: dev
     steps:
     - uses: actions/checkout@v4
-      with:
-        submodules: 'recursive'
     - name: SSH Deploy
       run: echo "Example dev deployment"
