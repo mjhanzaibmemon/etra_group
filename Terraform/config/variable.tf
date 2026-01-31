@@ -51,13 +51,13 @@ variable "aws_region" {
 variable "ecr_repository_name" {
   description = "ECR repository name"
   type        = string
-  default     = "etra_group-ecr"
+  default     = "etra-group-ecr"
 }
 
 variable "alb_name" {
   description = "Application Load Balancer name (NOT USED - hardcoded in main.tf)"
   type        = string
-  default     = "etra_group-alb"
+  default     = "etra-group-alb"
 }
 
 variable "alb_listener_port" {
@@ -83,9 +83,9 @@ variable "rds_max_allocated_storage" {
 }
 
 variable "rds_identifier" {
-  description = "RDS instance identifier (NOT USED - hardcoded in main.tf as etra_group-{env}-db)"
+  description = "RDS instance identifier (NOT USED - hardcoded in main.tf as etra-group-{env}-db)"
   type        = string
-  default     = "etra_group-db"
+  default     = "etra-group-db"
 }
 
 variable "rds_instance_class" {
@@ -115,13 +115,13 @@ variable "rds_storage_type" {
 variable "rds_db_name" {
   description = "RDS database name"
   type        = string
-  default     = "etra_group"
+  default     = "etra-group"
 }
 
 variable "rds_parameter_group_name" {
   description = "RDS parameter group name"
   type        = string
-  default     = "etra_group-sql-parameters"
+  default     = "etra-group-sql-parameters"
 }
 
 # Note: Tags are set inline in each resource/module in main.tf

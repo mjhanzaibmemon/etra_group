@@ -10,7 +10,7 @@
 module "vpc" {
   source     = "../modules/vpc"
   cidr_block = "10.0.0.0/16"
-  tags_name  = "etra_group-vpc-${var.environment}"
+  tags_name  = "etra-group-vpc-${var.environment}"
 }
 
 locals {
@@ -24,7 +24,7 @@ locals {
 module "internet_gateway" {
   source    = "../modules/igw"
   vpc_id    = local.vpc_id
-  tags_name = "etra_group-igw-${var.environment}"
+  tags_name = "etra-group-igw-${var.environment}"
 
   depends_on = [module.vpc]
 }
@@ -40,7 +40,7 @@ module "route_table" {
   source = "../modules/route_table"
 
   vpc_id  = local.vpc_id
-  rt_name = "etra_group-route-${var.environment}"
+  rt_name = "etra-group-route-${var.environment}"
 
   depends_on = [module.ecs_subnet_1, module.ecs_subnet_2]
 }
@@ -120,7 +120,7 @@ module "lambda_subnet_2" {
 ################################################################################
 module "ecs_task_execution_role" {
   source    = "../modules/iam"
-  role_name = "etra_group-task-exec-role-${var.environment}"
+  role_name = "etra-group-task-exec-role-${var.environment}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -133,7 +133,7 @@ module "ecs_task_execution_role" {
 
 module "ecs_task_role" {
   source    = "../modules/iam"
-  role_name = "etra_group-task-role-${var.environment}"
+  role_name = "etra-group-task-role-${var.environment}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -165,7 +165,7 @@ module "ecs_task_execution_ecr_policy_attachment" {
 
 # Secrets Manager read permission for ECS
 resource "aws_iam_role_policy" "ecs_secrets_manager_policy" {
-  name = "etra_group-secrets-manager-policy-${var.environment}"
+  name = "etra-group-secrets-manager-policy-${var.environment}"
   role = module.ecs_task_execution_role.role_name
 
   policy = jsonencode({
@@ -200,7 +200,7 @@ module "ecs_task_ecr_policy_attachment" {
 ################################################################################
 module "cloudwatch_log_group" {
   source            = "../modules/cloudwatch_log_group"
-  log_group_name    = "/ecs/etra_group-${var.environment}"
+  log_group_name    = "/ecs/etra-group-${var.environment}"
   retention_in_days = 7
 }
 
@@ -213,7 +213,7 @@ module "cloudwatch_log_group" {
 ################################################################################
 module "ecs_cluster" {
   source       = "../modules/ecs_cluster"
-  cluster_name = "etra_group-cluster-${var.environment}"
+  cluster_name = "etra-group-cluster-${var.environment}"
 
   enable_container_insights      = true
   default_capacity_provider_base = 1
@@ -227,8 +227,8 @@ module "ecs_cluster" {
 module "ecs_task_definition" {
   source = "../modules/ecs_task_definition"
 
-  task_family        = "etra_group-${var.environment}"
-  container_name     = "etra_group-container"
+  task_family        = "etra-group-${var.environment}"
+  container_name     = "etra-group-container"
   container_image    = var.ecs_container_image != "" ? var.ecs_container_image : module.ecr.ecr_repository_url
   container_port     = 80
   task_cpu           = var.ecs_task_cpu
@@ -293,8 +293,8 @@ module "ecs_task_definition" {
 module "alb" {
   source = "../modules/alb"
 
-  alb_name                   = "etra_group-alb-${var.environment}"
-  alb_security_group_name    = "etra_group-alb-sg-${var.environment}"
+  alb_name                   = "etra-group-alb-${var.environment}"
+  alb_security_group_name    = "etra-group-alb-sg-${var.environment}"
   vpc_id                     = local.vpc_id
   subnet_ids                 = [module.ecs_subnet_1.subnet_id, module.ecs_subnet_2.subnet_id]
   internal                   = false
@@ -309,7 +309,7 @@ module "alb" {
 module "alb_target_group" {
   source = "../modules/alb_target_group"
 
-  target_group_name = "etra_group-tg-${var.environment}"
+  target_group_name = "etra-group-tg-${var.environment}"
   target_port       = 80
 
   vpc_id                           = local.vpc_id
@@ -347,14 +347,14 @@ module "alb_listener" {
 module "ecs_service" {
   source = "../modules/ecs_service"
 
-  service_name          = "etra_group-service-${var.environment}"
+  service_name          = "etra-group-service-${var.environment}"
   cluster_id            = module.ecs_cluster.cluster_id
   task_definition_arn   = module.ecs_task_definition.task_definition_arn
   desired_count         = var.ecs_desired_count
   vpc_id                = local.vpc_id
   subnet_ids            = [module.ecs_subnet_1.subnet_id, module.ecs_subnet_2.subnet_id]
-  security_group_name   = "etra_group-ecs-sg-${var.environment}"
-  container_name        = "etra_group-container"
+  security_group_name   = "etra-group-ecs-sg-${var.environment}"
+  container_name        = "etra-group-container"
   container_port        = 80
   target_group_arn      = module.alb_target_group.target_group_arn
   alb_security_group_id = module.alb.alb_security_group_id
@@ -396,7 +396,7 @@ module "subnet_2_rt_association" {
 ################################################################################
 module "rds_subnet_group" {
   source = "../modules/rds_subnet_group"
-  name   = "etra_group-rds-subnet-group-${var.environment}"
+  name   = "etra-group-rds-subnet-group-${var.environment}"
   subnet_ids = [
     module.rds_subnet_1.subnet_id,
     module.rds_subnet_2.subnet_id
@@ -409,7 +409,7 @@ module "rds_subnet_group" {
 ################################################################################
 module "rds_sg" {
   source        = "../modules/rds_sg"
-  name          = "etra_group-rds-mysql-sg-${var.environment}"
+  name          = "etra-group-rds-mysql-sg-${var.environment}"
   vpc_id        = local.vpc_id
   db_port       = 3306
   ingress_cidrs = ["10.0.0.0/16"]
@@ -443,7 +443,7 @@ locals {
 ################################################################################
 module "rds_parameter_group" {
   source = "../modules/rds_parameter_group"
-  name   = "etra_group-mysql-parameters"
+  name   = "etra-group-mysql-parameters"
   family = "mysql8.0"
 
   parameters = {
@@ -458,7 +458,7 @@ module "rds_parameter_group" {
 module "rds_instance" {
   source = "../modules/rds_instance"
 
-  identifier     = "etra_group-${var.environment}-db"
+  identifier     = "etra-group-${var.environment}-db"
   engine_version = var.rds_engine_version
   instance_class = var.rds_instance_class
 
@@ -491,9 +491,9 @@ module "redis" {
   vpc_id              = local.vpc_id
   subnet_ids          = [module.rds_subnet_1.subnet_id, module.rds_subnet_2.subnet_id]
   ingress_cidrs       = ["10.0.0.0/16"]
-  sg_name             = "etra_group-redis-sg-${var.environment}"
-  subnet_group_name   = "etra_group-redis-subnet-group-${var.environment}"
-  replication_group_id = "etra_group-redis-${var.environment}"
+  sg_name             = "etra-group-redis-sg-${var.environment}"
+  subnet_group_name   = "etra-group-redis-subnet-group-${var.environment}"
+  replication_group_id = "etra-group-redis-${var.environment}"
 
   engine_version        = "6.x"
   node_type             = "cache.t3.small"
@@ -528,7 +528,7 @@ resource "aws_secretsmanager_secret_version" "db_credentials_updated" {
 ################################################################################
 module "ecr" {
   source               = "../modules/ecr"
-  ecr_repository_name  = "etra_group-ecr"
+  ecr_repository_name  = "etra-group-ecr"
   image_tag_mutability = "MUTABLE"
   scan_on_push         = true
 

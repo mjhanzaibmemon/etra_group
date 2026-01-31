@@ -8,11 +8,11 @@ ecs_task_memory   = 512
 ecs_desired_count = 2
 
 # ECR repository name (shared across environments)
-ecr_repository_name = "etra_group-ecr"
+ecr_repository_name = "etra-group-ecr"
 
 alb_listener_port = 80
 
-# RDS settings (identifier format: etra_group-{environment}-db)
+# RDS settings (identifier format: etra-group-{environment}-db)
 rds_instance_class    = "db.t3.micro"
 rds_engine_version    = "8.0"
 rds_allocated_storage = 20
